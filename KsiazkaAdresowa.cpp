@@ -1,11 +1,15 @@
 #include "KsiazkaAdresowa.h"
 
+KsiazkaAdresowa::KsiazkaAdresowa()
+: nazwaPlikuZUzytkownikami("Uzytkownicy.txt")
+{}
+
 void KsiazkaAdresowa::rejestracjaUzytkownika()
 {
     Uzytkownik uzytkownik = podajDaneNowegoUzytkownika();
 
     uzytkownicy.push_back(uzytkownik);
-    //dopiszUzytkownikaDoPliku(uzytkownik);
+    dopiszUzytkownikaDoPliku(uzytkownik);
 
     cout << endl << "Konto zalozono pomyslnie" << endl << endl;
     system("pause");
@@ -58,6 +62,59 @@ void KsiazkaAdresowa::wypiszWszystkichUzytkownikow()
         cout << uzytkownicy[i].pobierzLogin() << endl;
         cout << uzytkownicy[i].pobierzHaslo() << endl;
     }
+}
+
+void KsiazkaAdresowa::dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik)
+{
+    ofstream plikTekstowy;
+    string liniaZDanymiUzytkownika = "";
+    plikTekstowy.open(nazwaPlikuZUzytkownikami, ios::app);
+
+    if (plikTekstowy.good())
+    {
+        liniaZDanymiUzytkownika = zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(uzytkownik);
+
+        if (czyPlikJestPusty(plikTekstowy) == true)
+        {
+            plikTekstowy << liniaZDanymiUzytkownika;
+        }
+        else
+        {
+            plikTekstowy << endl << liniaZDanymiUzytkownika ;
+        }
+    }
+    else
+        cout << "Nie udalo sie otworzyc pliku " << "Uzytkownicy.txt" << " i zapisac w nim danych." << endl;
+    plikTekstowy.close();
+}
+
+string KsiazkaAdresowa::konwersjaIntNaString(int liczba)
+{;
+    ostringstream ss;
+    ss << liczba;
+    string str = ss.str();
+    return str;
+}
+
+string KsiazkaAdresowa::zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik)
+{
+    string liniaZDanymiUzytkownika = "";
+
+    liniaZDanymiUzytkownika += konwersjaIntNaString(uzytkownik.pobierzId()) + '|';
+    liniaZDanymiUzytkownika += uzytkownik.pobierzLogin() + '|';
+    liniaZDanymiUzytkownika += uzytkownik.pobierzHaslo() + '|';
+
+    return liniaZDanymiUzytkownika;
+}
+
+
+bool KsiazkaAdresowa::czyPlikJestPusty(ofstream &plikTekstowy)
+{
+    plikTekstowy.seekp(0, ios::end);
+    if (plikTekstowy.tellp() == 0)
+        return true;
+    else
+        return false;
 }
 
 string KsiazkaAdresowa::wczytajLinie()
