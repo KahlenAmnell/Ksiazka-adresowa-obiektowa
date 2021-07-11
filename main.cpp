@@ -4,8 +4,10 @@
 using namespace std;
 
 int main () {
-
-KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy2.txt");
+int idZalogowanegoUzytkownika = 0;
+KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt");
+idZalogowanegoUzytkownika = ksiazkaAdresowa.logowanieUzytkownika();
+ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika(idZalogowanegoUzytkownika);
 ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
 
 ksiazkaAdresowa.rejestracjaUzytkownika();
