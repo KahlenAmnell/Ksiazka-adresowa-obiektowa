@@ -8,9 +8,7 @@ int idZalogowanegoUzytkownika = 0;
 KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt");
 idZalogowanegoUzytkownika = ksiazkaAdresowa.logowanieUzytkownika();
 ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika(idZalogowanegoUzytkownika);
-ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
-
-ksiazkaAdresowa.rejestracjaUzytkownika();
+idZalogowanegoUzytkownika = ksiazkaAdresowa.wylogowanieUzytkownika(idZalogowanegoUzytkownika);
 ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
 return 0;
 }
