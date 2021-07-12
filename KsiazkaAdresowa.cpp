@@ -31,3 +31,8 @@ int KsiazkaAdresowa::wylogowanieUzytkownika(int idZalogowanegoUzytkownika)
     idZalogowanegoUzytkownika = adresatMeneger.wylogowanieUzytkownika(idZalogowanegoUzytkownika);
     return idZalogowanegoUzytkownika;
 }
+
+void KsiazkaAdresowa::dodajAdresata(int idZalogowanegoUzytkownika)
+{
+    adresatMeneger.dodajAdresata(idZalogowanegoUzytkownika);
+}

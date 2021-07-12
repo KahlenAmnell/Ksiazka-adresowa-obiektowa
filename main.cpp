@@ -7,7 +7,7 @@ int main () {
 int idZalogowanegoUzytkownika = 0;
 KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt");
 idZalogowanegoUzytkownika = ksiazkaAdresowa.logowanieUzytkownika();
-ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika(idZalogowanegoUzytkownika);
+ksiazkaAdresowa.dodajAdresata(idZalogowanegoUzytkownika);
 idZalogowanegoUzytkownika = ksiazkaAdresowa.wylogowanieUzytkownika(idZalogowanegoUzytkownika);
 ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
 return 0;
