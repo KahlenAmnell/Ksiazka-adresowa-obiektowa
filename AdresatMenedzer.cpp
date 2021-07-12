@@ -75,7 +75,7 @@ void AdresatMenager::wyswietlWszystkichAdresatow()
 
 void AdresatMenager::wyswietlDaneAdresata(Adresat adresat)
 {
-    cout << endl << "Id:                  " << adresat.pobierzId() << endl;
+    cout << endl << "Id:                 " << adresat.pobierzId() << endl;
     cout << "Imie:               " << adresat.pobierzImie() << endl;
     cout << "Nazwisko:           " << adresat.pobierzNazwisko() << endl;
     cout << "Numer telefonu:     " << adresat.pobierzNumerTelefonu() << endl;
