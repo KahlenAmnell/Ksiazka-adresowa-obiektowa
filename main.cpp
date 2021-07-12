@@ -10,7 +10,7 @@ KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt");
 idZalogowanegoUzytkownika = ksiazkaAdresowa.logowanieUzytkownika();
 idOstatniegoAdresata = ksiazkaAdresowa.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
 idOstatniegoAdresata = ksiazkaAdresowa.dodajAdresata(idZalogowanegoUzytkownika, idOstatniegoAdresata);
+ksiazkaAdresowa.wyswietlWszystkichAdresatow();
 idZalogowanegoUzytkownika = ksiazkaAdresowa.wylogowanieUzytkownika(idZalogowanegoUzytkownika);
-ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
 return 0;
 }

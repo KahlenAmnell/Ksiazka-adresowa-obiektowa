@@ -22,7 +22,7 @@ public:
     int wylogowanieUzytkownika(int idZalogowanegoUzytkownika);
     int wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
     int dodajAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata);
-
+    void wyswietlWszystkichAdresatow();
 };
 
 #endif // KSIAZKAADRESOWA_H
