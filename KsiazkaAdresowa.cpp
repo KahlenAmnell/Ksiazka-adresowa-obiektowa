@@ -44,3 +44,8 @@ int KsiazkaAdresowa::dodajAdresata(int idZalogowanegoUzytkownika, int idOstatnie
     idOstatniegoAdresata = adresatMeneger.dodajAdresata(idZalogowanegoUzytkownika, idOstatniegoAdresata);
     return idOstatniegoAdresata;
 }
+
+void KsiazkaAdresowa::wyswietlWszystkichAdresatow()
+{
+    adresatMeneger.wyswietlWszystkichAdresatow();
+}
