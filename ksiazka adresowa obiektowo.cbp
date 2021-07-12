@@ -33,10 +33,16 @@
 			<Add option="-fexceptions" />
 			<Add option="-std=c++17" />
 		</Compiler>
+		<Unit filename="Adresat.cpp" />
+		<Unit filename="Adresat.h" />
+		<Unit filename="AdresatMenedzer.cpp" />
+		<Unit filename="AdresatMenedzer.h" />
 		<Unit filename="KsiazkaAdresowa.cpp" />
 		<Unit filename="KsiazkaAdresowa.h" />
 		<Unit filename="MetodyPomocnicze.cpp" />
 		<Unit filename="MetodyPomocnicze.h" />
+		<Unit filename="PlikZAdresami.cpp" />
+		<Unit filename="PlikZAdresami.h" />
 		<Unit filename="PlikZUzytkownikami.cpp" />
 		<Unit filename="PlikZUzytkownikami.h" />
 		<Unit filename="Uzytkownik.cpp" />

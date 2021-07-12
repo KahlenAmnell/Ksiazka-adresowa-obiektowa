@@ -5,9 +5,11 @@ using namespace std;
 
 int main () {
 int idZalogowanegoUzytkownika = 0;
+int idOstatniegoAdresata = 0;
 KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt");
 idZalogowanegoUzytkownika = ksiazkaAdresowa.logowanieUzytkownika();
-ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika(idZalogowanegoUzytkownika);
+idOstatniegoAdresata = ksiazkaAdresowa.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
+idOstatniegoAdresata = ksiazkaAdresowa.dodajAdresata(idZalogowanegoUzytkownika, idOstatniegoAdresata);
 idZalogowanegoUzytkownika = ksiazkaAdresowa.wylogowanieUzytkownika(idZalogowanegoUzytkownika);
 ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
 return 0;
