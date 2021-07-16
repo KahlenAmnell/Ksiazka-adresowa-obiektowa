@@ -1,32 +1,33 @@
 #include "AdresatMenedzer.h"
 
-int AdresatMenager::wylogowanieUzytkownika(int idZalogowanegoUzytkownika)
+AdresatMenager::AdresatMenager(string nazwaPlikuZAdresatami, int idZalogowanegoUzytkownika)
+    :plikZAdresatami(nazwaPlikuZAdresatami), ID_ZALOGOWANEGO_UZYTKOWNIKA(idZalogowanegoUzytkownika)
 {
-    adresaci.clear();
-    cout << "Wylogowano" << endl;
-    system("pause");
-    return idZalogowanegoUzytkownika = 0;
+    adresaci = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA);
 }
 
-int AdresatMenager::dodajAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata)
+void AdresatMenager::dodajAdresata()
 {
     Adresat adresat;
 
     system("cls");
     cout << " >>> DODAWANIE NOWEGO ADRESATA <<<" << endl << endl;
-    adresat = podajDaneNowegoAdresata(idZalogowanegoUzytkownika, idOstatniegoAdresata);
+    adresat = podajDaneNowegoAdresata();
 
     adresaci.push_back(adresat);
-    plikZAdresatami.dopiszAdresataDoPliku(adresat);
-    return ++idOstatniegoAdresata;
+    if(plikZAdresatami.dopiszAdresataDoPliku(adresat))
+        cout << "Nowy adresat zostal dodany" << endl;
+    else
+        cout << "Blad. Nie udalo sie dodac nowego adresata do pliku." << endl;
+    system("pause");
 }
 
-Adresat AdresatMenager::podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata)
+Adresat AdresatMenager::podajDaneNowegoAdresata()
 {
     Adresat adresat;
 
-    adresat.ustawId(++idOstatniegoAdresata);
-    adresat.ustawIdUzytkownika(idZalogowanegoUzytkownika);
+    adresat.ustawId(plikZAdresatami.pobierzIdOstatniegoAdresata() +1);
+    adresat.ustawIdUzytkownika(ID_ZALOGOWANEGO_UZYTKOWNIKA);
 
     cout << "Podaj imie: ";
     adresat.ustawImie(MetodyPomocnicze::wczytajLinie());
@@ -46,11 +47,6 @@ Adresat AdresatMenager::podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, i
     adresat.ustawAdres(MetodyPomocnicze::wczytajLinie());
 
     return adresat;
-}
-
-int AdresatMenager::wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika)
-{
-    plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(adresaci, idZalogowanegoUzytkownika);
 }
 
 void AdresatMenager::wyswietlWszystkichAdresatow()

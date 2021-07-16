@@ -12,15 +12,15 @@
 
 class AdresatMenager
 {
+    const int ID_ZALOGOWANEGO_UZYTKOWNIKA;
     vector<Adresat> adresaci;
     PlikZAdresami plikZAdresatami;
 
-    Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata);
+    Adresat podajDaneNowegoAdresata();
     void wyswietlDaneAdresata(Adresat adresat);
 public:
-    int wylogowanieUzytkownika(int idZalogowanegoUzytkownika);
-    int dodajAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata);
-    int wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
+    AdresatMenager(string nazwaPlikuZAdresatami, int idZalogowanegoUzytkownika);
+    void dodajAdresata();
     void wyswietlWszystkichAdresatow();
 };
 #endif // ADRESATMENEGER_H

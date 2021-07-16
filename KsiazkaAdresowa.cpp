@@ -1,9 +1,15 @@
 #include "KsiazkaAdresowa.h"
 
-KsiazkaAdresowa::KsiazkaAdresowa(string nazwaPlikuZUzytkownikami):uzytkownikMenedzer(nazwaPlikuZUzytkownikami)
+KsiazkaAdresowa::KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami)
+    :uzytkownikMenedzer(nazwaPlikuZUzytkownikami), NAZWA_PLIKU_Z_ADRESAMI(nazwaPlikuZAdresatami)
 {
-    uzytkownikMenedzer.wczytajUzytkownikowZPliku();
+    adresatMeneger = NULL;
+}
 
+KsiazkaAdresowa::~KsiazkaAdresowa()
+{
+    delete adresatMeneger;
+    adresatMeneger = NULL;
 }
 
 void KsiazkaAdresowa::rejestracjaUzytkownika()
@@ -16,36 +22,41 @@ void KsiazkaAdresowa::wypiszWszystkichUzytkownikow()
     uzytkownikMenedzer.wypiszWszystkichUzytkownikow();
 }
 
-int KsiazkaAdresowa::logowanieUzytkownika()
+void KsiazkaAdresowa::logowanieUzytkownika()
 {
-    int idZalogowanegoUzytkownika = uzytkownikMenedzer.logowanieUzytkownika();
-    return idZalogowanegoUzytkownika;
+    uzytkownikMenedzer.logowanieUzytkownika();
+    if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+    {
+        adresatMeneger = new AdresatMenager(NAZWA_PLIKU_Z_ADRESAMI, uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
+    }
 }
 
-void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika(int idZalogowanegoUzytkownika)
+void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika()
 {
-    uzytkownikMenedzer.zmianaHaslaZalogowanegoUzytkownika(idZalogowanegoUzytkownika);
+    uzytkownikMenedzer.zmianaHaslaZalogowanegoUzytkownika();
 }
 
-int KsiazkaAdresowa::wylogowanieUzytkownika(int idZalogowanegoUzytkownika)
+void KsiazkaAdresowa::wylogowanieUzytkownika()
 {
-    idZalogowanegoUzytkownika = adresatMeneger.wylogowanieUzytkownika(idZalogowanegoUzytkownika);
-    return idZalogowanegoUzytkownika;
+    uzytkownikMenedzer.wylogowanieUzytkownika();
+    delete adresatMeneger;
+    adresatMeneger = NULL;
 }
 
-int KsiazkaAdresowa::wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika)
+void KsiazkaAdresowa::dodajAdresata()
 {
-    int idOstatniegoAdresata = adresatMeneger.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
-    return idOstatniegoAdresata;
-}
-
-int KsiazkaAdresowa::dodajAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata)
-{
-    idOstatniegoAdresata = adresatMeneger.dodajAdresata(idZalogowanegoUzytkownika, idOstatniegoAdresata);
-    return idOstatniegoAdresata;
+    if(uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+    {
+        adresatMeneger->dodajAdresata();
+    }
+    else
+    {
+        cout << "Aby dodac adresata, nalezy najpierw sie zalogowac" << endl;
+        system("pause");
+    }
 }
 
 void KsiazkaAdresowa::wyswietlWszystkichAdresatow()
 {
-    adresatMeneger.wyswietlWszystkichAdresatow();
+    adresatMeneger->wyswietlWszystkichAdresatow();
 }
