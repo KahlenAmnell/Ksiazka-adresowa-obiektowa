@@ -18,9 +18,12 @@ class AdresatMenager
 
     Adresat podajDaneNowegoAdresata();
     void wyswietlDaneAdresata(Adresat adresat);
+    int podajIdWybranegoAdresata();
+    int zwrocNumerLiniiSzukanegoAdresata(int idUsuwanegoAdresata);
 public:
     AdresatMenager(string nazwaPlikuZAdresatami, int idZalogowanegoUzytkownika);
     void dodajAdresata();
     void wyswietlWszystkichAdresatow();
+    int usunAdresata();
 };
 #endif // ADRESATMENEGER_H

@@ -10,6 +10,7 @@ ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
 ksiazkaAdresowa.logowanieUzytkownika();
 ksiazkaAdresowa.dodajAdresata();
 ksiazkaAdresowa.wyswietlWszystkichAdresatow();
+ksiazkaAdresowa.usunAdresata();
 ksiazkaAdresowa.wylogowanieUzytkownika();
 return 0;
 }
