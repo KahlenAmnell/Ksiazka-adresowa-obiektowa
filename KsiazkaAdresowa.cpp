@@ -60,3 +60,8 @@ void KsiazkaAdresowa::wyswietlWszystkichAdresatow()
 {
     adresatMeneger->wyswietlWszystkichAdresatow();
 }
+
+void KsiazkaAdresowa::usunAdresata()
+{
+    adresatMeneger->usunAdresata();
+}
