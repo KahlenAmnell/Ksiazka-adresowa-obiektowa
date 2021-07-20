@@ -79,10 +79,9 @@ void AdresatMenager::wyswietlDaneAdresata(Adresat adresat)
     cout << "Adres:              " << adresat.pobierzAdres() << endl;
 }
 
-int AdresatMenager::usunAdresata()
+void AdresatMenager::usunAdresata()
 {
     int idUsuwanegoAdresata = 0;
-    int numerLiniiUsuwanegoAdresata = 0;
 
     system("cls");
     cout << ">>> USUWANIE WYBRANEGO ADRESATA <<<" << endl << endl;
@@ -100,18 +99,16 @@ int AdresatMenager::usunAdresata()
             znak = MetodyPomocnicze::wczytajZnak();
             if (znak == 't')
             {
-                numerLiniiUsuwanegoAdresata = zwrocNumerLiniiSzukanegoAdresata(idUsuwanegoAdresata);
-                plikZAdresatami.usunWybranaLinieWPliku(numerLiniiUsuwanegoAdresata);
+                plikZAdresatami.usunWybranegoAdresataZPliku(idUsuwanegoAdresata);
                 adresaci.erase(itr);
                 cout << endl << endl << "Szukany adresat zostal USUNIETY" << endl << endl;
                 system("pause");
-                return idUsuwanegoAdresata;
+                return;
             }
             else
             {
                 cout << endl << endl << "Wybrany adresat NIE zostal usuniety" << endl << endl;
                 system("pause");
-                return 0;
             }
         }
     }
@@ -120,7 +117,6 @@ int AdresatMenager::usunAdresata()
         cout << endl << "Nie ma takiego adresata w ksiazce adresowej" << endl << endl;
         system("pause");
     }
-    return 0;
 }
 
 int AdresatMenager::podajIdWybranegoAdresata()
@@ -129,11 +125,4 @@ int AdresatMenager::podajIdWybranegoAdresata()
     cout << "Podaj numer ID Adresata: ";
     idWybranegoAdresata  = MetodyPomocnicze::wczytajLiczbeCalkowita();
     return idWybranegoAdresata;
-}
-
-int AdresatMenager::zwrocNumerLiniiSzukanegoAdresata(int idUsuwanegoAdresata)
-{
-    int numerLiniiWPlikuTekstowym = 0;
-    numerLiniiWPlikuTekstowym = plikZAdresatami.zwrocNumerLiniiSzukanegoAdresata(idUsuwanegoAdresata);
-    return numerLiniiWPlikuTekstowym;
 }

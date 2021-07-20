@@ -18,15 +18,16 @@ class PlikZAdresami
     int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
     void usunPlik(string nazwaPlikuZRozszerzeniem);
     void zmienNazwePliku(string staraNazwa, string nowaNazwa);
+    void pobierzZPlikuIdOstatniegoAdresata();
 
-
+    void podajIdOstatniegoAdresataPoUsunieciuWybranegoAdresata(int idUsuwanegoAdresata);
 
 public:
     PlikZAdresami(string nazwaPlikuZAdresami);
     bool dopiszAdresataDoPliku(Adresat adresat);
     vector <Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
     int pobierzIdOstatniegoAdresata();
-    int zwrocNumerLiniiSzukanegoAdresata(int idAdresata);
-    void usunWybranaLinieWPliku(int numerUsuwanejLinii);
+    void usunWybranegoAdresataZPliku(int idUsuwanegoAdresata);
+
 };
 #endif // PLIKZADRESAMI_H
