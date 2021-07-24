@@ -126,3 +126,139 @@ int AdresatMenager::podajIdWybranegoAdresata()
     idWybranegoAdresata  = MetodyPomocnicze::wczytajLiczbeCalkowita();
     return idWybranegoAdresata;
 }
+
+void AdresatMenager::edytujAdresata()
+{
+    system("cls");
+    Adresat adresat;
+    int idEdytowanegoAdresata = 0;
+    int numerLiniiEdytowanegoAdresata = 0;
+    string liniaZDanymiAdresata = "";
+
+
+    cout << ">>> EDYCJA WYBRANEGO ADRESATA <<<" << endl << endl;
+    idEdytowanegoAdresata = podajIdWybranegoAdresata();
+
+    char wybor;
+    bool czyIstniejeAdresat = false;
+
+    for (int i = 0; i < adresaci.size(); i++)
+    {
+        if (adresaci[i].pobierzId() == idEdytowanegoAdresata)
+        {
+            czyIstniejeAdresat = true;
+            wybor = wybierzOpcjeZMenuEdycja();
+
+            switch (wybor)
+            {
+            case '1':
+
+                ustawNoweImie(adresaci[i]);
+                break;
+            case '2':
+
+                ustawNoweNazwisko(adresaci[i]);
+                break;
+            case '3':
+
+                ustawNowyNumerTelefonu(adresaci[i]);
+                break;
+            case '4':
+
+                ustawNowyEmail(adresaci[i]);
+                break;
+            case '5':
+
+                ustawNowyAdres(adresaci[i]);
+                break;
+            case '6':
+                cout << endl << "Powrot do menu uzytkownika" << endl << endl;
+                break;
+            default:
+                cout << endl << "Nie ma takiej opcji w menu! Powrot do menu uzytkownika." << endl << endl;
+                break;
+            }
+        }
+    }
+    if (czyIstniejeAdresat == false)
+    {
+        cout << endl << "Nie ma takiego adresata." << endl << endl;
+    }
+    system("pause");
+}
+
+char AdresatMenager::wybierzOpcjeZMenuEdycja()
+{
+    char wybor;
+
+    cout << endl << "   >>> MENU  EDYCJA <<<" << endl;
+    cout << "---------------------------" << endl;
+    cout << "Ktore dane zaktualizowac: " << endl;
+    cout << "1 - Imie" << endl;
+    cout << "2 - Nazwisko" << endl;
+    cout << "3 - Numer telefonu" << endl;
+    cout << "4 - Email" << endl;
+    cout << "5 - Adres" << endl;
+    cout << "6 - Powrot " << endl;
+    cout << endl << "Twoj wybor: ";
+    wybor = MetodyPomocnicze::wczytajZnak();
+
+    return wybor;
+}
+
+Adresat AdresatMenager::ustawNoweImie(Adresat &adresat)
+{
+    string imie;
+
+    cout << "Podaj nowe imie: ";
+    imie = MetodyPomocnicze::wczytajLinie();
+    imie = MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(imie);
+    adresat.ustawImie(imie);
+    plikZAdresatami.zaktualizujDaneWybranegoAdresata(adresat);
+    return adresat;
+}
+
+Adresat AdresatMenager::ustawNoweNazwisko(Adresat &adresat)
+{
+    string nazwisko;
+
+    cout << "Podaj nowe nazwisko: ";
+    nazwisko = MetodyPomocnicze::wczytajLinie();
+    nazwisko = MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(nazwisko);
+    adresat.ustawNazwisko(nazwisko);
+    plikZAdresatami.zaktualizujDaneWybranegoAdresata(adresat);
+    return adresat;
+}
+
+Adresat AdresatMenager::ustawNowyNumerTelefonu(Adresat &adresat)
+{
+    string numerTelefonu;
+
+    cout << "Podaj nowy numer telefonu: ";
+    numerTelefonu = MetodyPomocnicze::wczytajLinie();
+    adresat.ustawNumerTelefonu(numerTelefonu);
+    plikZAdresatami.zaktualizujDaneWybranegoAdresata(adresat);
+    return adresat;
+}
+
+Adresat AdresatMenager::ustawNowyEmail(Adresat &adresat)
+{
+    string email;
+
+    cout << "Podaj nowy email: ";
+    email = MetodyPomocnicze::wczytajLinie();
+    adresat.ustawEmail(email);
+    plikZAdresatami.zaktualizujDaneWybranegoAdresata(adresat);
+    return adresat;
+}
+
+Adresat AdresatMenager::ustawNowyAdres(Adresat &adresat)
+{
+    string adres;
+
+    cout << "Podaj nowy adres zamieszkania: ";
+    adres = MetodyPomocnicze::wczytajLinie();
+    adresat.ustawAdres(adres);
+    plikZAdresatami.zaktualizujDaneWybranegoAdresata(adresat);
+    return adresat;
+}
