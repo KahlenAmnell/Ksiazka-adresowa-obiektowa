@@ -135,7 +135,6 @@ void AdresatMenager::edytujAdresata()
     int numerLiniiEdytowanegoAdresata = 0;
     string liniaZDanymiAdresata = "";
 
-
     cout << ">>> EDYCJA WYBRANEGO ADRESATA <<<" << endl << endl;
     idEdytowanegoAdresata = podajIdWybranegoAdresata();
 
@@ -152,23 +151,18 @@ void AdresatMenager::edytujAdresata()
             switch (wybor)
             {
             case '1':
-
                 ustawNoweImie(adresaci[i]);
                 break;
             case '2':
-
                 ustawNoweNazwisko(adresaci[i]);
                 break;
             case '3':
-
                 ustawNowyNumerTelefonu(adresaci[i]);
                 break;
             case '4':
-
                 ustawNowyEmail(adresaci[i]);
                 break;
             case '5':
-
                 ustawNowyAdres(adresaci[i]);
                 break;
             case '6':

@@ -253,11 +253,12 @@ int PlikZAdresami::zwrocNumerLiniiSzukanegoAdresata(int idAdresata)
     return 0;
 }
 
-void PlikZAdresami::edytujWybranaLinieWPliku(int numerEdytowanejLinii, string liniaZDanymiAdresataOddzielonePionowymiKreskami)
+void PlikZAdresami::edytujWybranaLinieWPliku(/*int numerEdytowanejLinii, */int idEdytowanegoAdresata, string liniaZDanymiAdresataOddzielonePionowymiKreskami)
 {
     fstream odczytywanyPlikTekstowy, tymczasowyPlikTekstowy;
     string wczytanaLinia = "";
     int numerWczytanejLinii = 1;
+    int numerIdAdresataZWczytanejLinii = 0;
 
     odczytywanyPlikTekstowy.open(NAZWA_PLIKU_Z_ADRESAMI, ios::in);
     tymczasowyPlikTekstowy.open(NAZWA_PLIKU_TYMCZASOWEGO_Z_ADRESAMI, ios::out | ios::app);
@@ -266,8 +267,10 @@ void PlikZAdresami::edytujWybranaLinieWPliku(int numerEdytowanejLinii, string li
     {
         while (getline(odczytywanyPlikTekstowy, wczytanaLinia))
         {
+            numerIdAdresataZWczytanejLinii = pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(wczytanaLinia);
+            if(idEdytowanegoAdresata == numerIdAdresataZWczytanejLinii)
            // if (idAdresata == pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneJednegoAdresataOddzielonePionowymiKreskami))
-            if (numerWczytanejLinii == numerEdytowanejLinii)
+            //if (numerWczytanejLinii == numerEdytowanejLinii)
             {
                 if (numerWczytanejLinii == 1)
                     tymczasowyPlikTekstowy << liniaZDanymiAdresataOddzielonePionowymiKreskami;
@@ -295,10 +298,10 @@ void PlikZAdresami::zaktualizujDaneWybranegoAdresata(Adresat adresat)
 {
     int numerLiniiEdytowanegoAdresata = 0;
     string liniaZDanymiAdresata = "";
-
-    numerLiniiEdytowanegoAdresata = zwrocNumerLiniiSzukanegoAdresata(adresat.pobierzId());
+    int idEdytowanegoAdresata = adresat.pobierzId();
+    //numerLiniiEdytowanegoAdresata = zwrocNumerLiniiSzukanegoAdresata(adresat.pobierzId());
     liniaZDanymiAdresata = zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresat);
-    edytujWybranaLinieWPliku(numerLiniiEdytowanegoAdresata, liniaZDanymiAdresata);
+    edytujWybranaLinieWPliku(/*numerLiniiEdytowanegoAdresata,*/idEdytowanegoAdresata, liniaZDanymiAdresata);
 
     cout << endl << "Dane zostaly zaktualizowane." << endl << endl;
 }

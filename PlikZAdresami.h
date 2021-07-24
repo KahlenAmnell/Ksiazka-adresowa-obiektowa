@@ -29,7 +29,7 @@ public:
     int pobierzIdOstatniegoAdresata();
     void usunWybranegoAdresataZPliku(int idUsuwanegoAdresata);
     int zwrocNumerLiniiSzukanegoAdresata(int idAdresata);
-    void edytujWybranaLinieWPliku(int numerEdytowanejLinii, string liniaZDanymiAdresataOddzielonePionowymiKreskami);
+    void edytujWybranaLinieWPliku(/*int numerEdytowanejLinii, */int idEdytowanegoAdresata, string liniaZDanymiAdresataOddzielonePionowymiKreskami);
     void zaktualizujDaneWybranegoAdresata(Adresat adresat);
 
 };
