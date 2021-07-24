@@ -19,11 +19,18 @@ class AdresatMenager
     Adresat podajDaneNowegoAdresata();
     void wyswietlDaneAdresata(Adresat adresat);
     int podajIdWybranegoAdresata();
+    char wybierzOpcjeZMenuEdycja();
+    Adresat ustawNoweImie(Adresat &adresat);
+    Adresat ustawNoweNazwisko(Adresat &adresat);
+    Adresat ustawNowyNumerTelefonu(Adresat &adresat);
+    Adresat ustawNowyAdres(Adresat &adresat);
+    Adresat ustawNowyEmail(Adresat &adresat);
 
 public:
     AdresatMenager(string nazwaPlikuZAdresatami, int idZalogowanegoUzytkownika);
     void dodajAdresata();
     void wyswietlWszystkichAdresatow();
     void usunAdresata();
+    void edytujAdresata();
 };
 #endif // ADRESATMENEGER_H

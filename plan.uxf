@@ -24,6 +24,8 @@ KsiazkaAdresowa()
 + wczytajAdresatowZalogowanegoUzytkownikaZPliku(): Integer
 + dodajAdresata(): Integer
 + wyswietlWszystkichAdresatow(): Void
++ usunAdresata(): Void
+edytujAdresata(): Void
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -107,7 +109,10 @@ KsiazkaAdresowa()
 + zamienPierwszaLitereNaDuzaAPozostaleNaMale(): String
 + pobierzLiczbe(): String
 + konwersjaStringNaInt(): Integer
-+ czyPlikJestPusty(): Bool</panel_attributes>
++ czyPlikJestPusty(): Bool
++ wczytajLiczbeCalkowita(): Integer
++ wczytajZnak(): Char
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -143,12 +148,17 @@ KsiazkaAdresowa()
 - adresaci: vector&lt;Adresat&gt;
 - PlikZAdresami plikZAdresami
 --
-+ wylogowanieUzytkownika(): Integer
 + dodajAdresata(): Integer
 + wczytajAdresatowZalogowanegoUzytkownikaZPliku(): Integer
 + wyswietlWszystkichAdresatow(): Void
++ usunAdresata(): Integer
 - podajDaneNowegoAdresata(): Adresat
-- wyswietlDaneAdresata(): Void</panel_attributes>
+- wyswietlDaneAdresata(): Void
+- podajIdWybranegoAdresata(): Integer
+- wybierzOpcjeZMenuEdycja(): Char
+- zaktualizujDaneWybranegoAdresata(): Void
+
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -166,11 +176,17 @@ KsiazkaAdresowa()
 PlikZAdresami()
 + dopiszAdresataDoPliku(): Void
 + wczytajAdresatowZalogowanegoUzytkownikaZPliku(): Integer
++ pobierzIdOstatniegoAdresata(): Integer
++ usunWybranegoAdresataZPliku(): Void
+
 - pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(): Integer
 - pobierzDaneAdresata(): Adresat
 - pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(): Integer
 - czyPlikJestPusty(): Bool
-- zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(): String</panel_attributes>
+- zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(): String
+- podajIdOstatniegoAdresataPoUsunieciuWybranegoAdresata(): Integer
+- pobierzZPlikuIdOstatniegoAdresata(): Integer
+</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
