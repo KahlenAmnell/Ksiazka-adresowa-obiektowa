@@ -25,7 +25,7 @@ KsiazkaAdresowa()
 + dodajAdresata(): Integer
 + wyswietlWszystkichAdresatow(): Void
 + usunAdresata(): Void
-edytujAdresata(): Void
++ edytujAdresata(): Void
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -75,8 +75,8 @@ edytujAdresata(): Void
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>640</x>
-      <y>270</y>
+      <x>580</x>
+      <y>240</y>
       <w>270</w>
       <h>260</h>
     </coordinates>
@@ -96,8 +96,8 @@ edytujAdresata(): Void
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>300</x>
-      <y>330</y>
+      <x>290</x>
+      <y>290</y>
       <w>270</w>
       <h>280</h>
     </coordinates>
@@ -118,8 +118,8 @@ edytujAdresata(): Void
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>100</x>
-      <y>370</y>
+      <x>70</x>
+      <y>340</y>
       <w>190</w>
       <h>150</h>
     </coordinates>
@@ -145,18 +145,25 @@ edytujAdresata(): Void
     </coordinates>
     <panel_attributes>AdresatMenedzer
 --
+- ID_ZALOGOWANEGO_UZYTKOWNIKA
 - adresaci: vector&lt;Adresat&gt;
 - PlikZAdresami plikZAdresami
 --
 + dodajAdresata(): Integer
 + wczytajAdresatowZalogowanegoUzytkownikaZPliku(): Integer
 + wyswietlWszystkichAdresatow(): Void
-+ usunAdresata(): Integer
++ usunAdresata(): Void
++ edytujAdresata(): Void
 - podajDaneNowegoAdresata(): Adresat
 - wyswietlDaneAdresata(): Void
 - podajIdWybranegoAdresata(): Integer
 - wybierzOpcjeZMenuEdycja(): Char
-- zaktualizujDaneWybranegoAdresata(): Void
+- ustawNoweImie(): Adresat
+- ustawNoweNazwisko(): Adresat
+- ustawNowyNumerTelefonu(): Adresat
+- ustawNowyAdres(): Adresat
+- ustawNowyEmail(): Adresat
+
 
 </panel_attributes>
     <additional_attributes/>
@@ -167,25 +174,30 @@ edytujAdresata(): Void
       <x>360</x>
       <y>620</y>
       <w>290</w>
-      <h>270</h>
+      <h>320</h>
     </coordinates>
     <panel_attributes>Plik z adresami
 --
-- nazwaPlikuZAdresatami
+- idOstatniegoAdresata
+- NAZWA_PLIKU_Z_ADRESAMI
+- NAZWA_PLIKU_TYMCZASOWEGO_Z_ADRESAMI
 --
 PlikZAdresami()
 + dopiszAdresataDoPliku(): Void
 + wczytajAdresatowZalogowanegoUzytkownikaZPliku(): Integer
 + pobierzIdOstatniegoAdresata(): Integer
 + usunWybranegoAdresataZPliku(): Void
-
++ edytujWybranaLinieWPliku(): Void
++ zaktualizujDaneWybranegoAdresata(): Void
+- zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(): String
 - pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(): Integer
 - pobierzDaneAdresata(): Adresat
 - pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(): Integer
-- czyPlikJestPusty(): Bool
-- zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(): String
-- podajIdOstatniegoAdresataPoUsunieciuWybranegoAdresata(): Integer
-- pobierzZPlikuIdOstatniegoAdresata(): Integer
+- usunPlik(): Void
+- zamienNazwePliku(): Void
+- pobierzZPlikuIdOstatniegoAdresata(): Void
+- podajIdOstatniegoAdresataPoUsunieciuWybranegoAdresata(): Void
+
 </panel_attributes>
     <additional_attributes/>
   </element>
