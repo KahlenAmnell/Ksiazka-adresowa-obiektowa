@@ -17,12 +17,15 @@ class KsiazkaAdresowa
 public:
     KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami);
     ~KsiazkaAdresowa();
+    char wybierzOpcjeZMenuGlownego();
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
-    void logowanieUzytkownika();
+    bool logowanieUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika();
     void wylogowanieUzytkownika();
-    void wczytajAdresatowZalogowanegoUzytkownikaZPliku();
+
+   // void wczytajAdresatowZalogowanegoUzytkownikaZPliku();
+    char wybierzOpcjeZMenuUzytkownika();
     void dodajAdresata();
     void wyswietlWszystkichAdresatow();
     void usunAdresata();

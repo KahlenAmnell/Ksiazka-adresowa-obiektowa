@@ -4,14 +4,14 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
-
+#include "PlikTekstowy.h"
 #include "Adresat.h"
 #include "MetodyPomocnicze.h"
 
-class PlikZAdresami
+class PlikZAdresami :protected PlikTekstowy
 {
     int idOstatniegoAdresata;
-    const string NAZWA_PLIKU_Z_ADRESAMI;
+    //const string NAZWA_PLIKU_Z_ADRESAMI;
     const string NAZWA_PLIKU_TYMCZASOWEGO_Z_ADRESAMI;
     string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
     int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
@@ -28,8 +28,7 @@ public:
     vector <Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
     int pobierzIdOstatniegoAdresata();
     void usunWybranegoAdresataZPliku(int idUsuwanegoAdresata);
-    int zwrocNumerLiniiSzukanegoAdresata(int idAdresata);
-    void edytujWybranaLinieWPliku(/*int numerEdytowanejLinii, */int idEdytowanegoAdresata, string liniaZDanymiAdresataOddzielonePionowymiKreskami);
+    void edytujWybranaLinieWPliku(int idEdytowanegoAdresata, string liniaZDanymiAdresataOddzielonePionowymiKreskami);
     void zaktualizujDaneWybranegoAdresata(Adresat adresat);
 
 };

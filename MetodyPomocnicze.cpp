@@ -25,14 +25,14 @@ string MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst
     return tekst;
 }
 
-bool MetodyPomocnicze::czyPlikJestPusty(fstream &plikTekstowy)
-{
-    plikTekstowy.seekp(0, ios::end);
-    if (plikTekstowy.tellp() == 0)
-        return true;
-    else
-        return false;
-}
+//bool MetodyPomocnicze::czyPlikJestPusty(fstream &plikTekstowy)
+//{
+//    plikTekstowy.seekp(0, ios::end);
+//    if (plikTekstowy.tellp() == 0)
+//        return true;
+//    else
+//        return false;
+//}
 
 int MetodyPomocnicze::konwersjaStringNaInt(string liczba)
 {

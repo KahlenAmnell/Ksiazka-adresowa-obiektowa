@@ -12,6 +12,23 @@ KsiazkaAdresowa::~KsiazkaAdresowa()
     adresatMeneger = NULL;
 }
 
+char KsiazkaAdresowa::wybierzOpcjeZMenuGlownego()
+{
+    char wybor;
+
+    system("cls");
+    cout << "    >>> MENU  GLOWNE <<<" << endl;
+    cout << "---------------------------" << endl;
+    cout << "1. Rejestracja" << endl;
+    cout << "2. Logowanie" << endl;
+    cout << "9. Koniec programu" << endl;
+    cout << "---------------------------" << endl;
+    cout << "Twoj wybor: ";
+    wybor = MetodyPomocnicze::wczytajZnak();
+
+    return wybor;
+}
+
 void KsiazkaAdresowa::rejestracjaUzytkownika()
 {
     uzytkownikMenedzer.rejestracjaUzytkownika();
@@ -22,13 +39,14 @@ void KsiazkaAdresowa::wypiszWszystkichUzytkownikow()
     uzytkownikMenedzer.wypiszWszystkichUzytkownikow();
 }
 
-void KsiazkaAdresowa::logowanieUzytkownika()
+ bool KsiazkaAdresowa::logowanieUzytkownika()
 {
     uzytkownikMenedzer.logowanieUzytkownika();
     if (uzytkownikMenedzer.czyUzytkownikJestZalogowany())
     {
         adresatMeneger = new AdresatMenager(NAZWA_PLIKU_Z_ADRESAMI, uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
     }
+    return uzytkownikMenedzer.czyUzytkownikJestZalogowany();
 }
 
 void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika()
@@ -41,6 +59,11 @@ void KsiazkaAdresowa::wylogowanieUzytkownika()
     uzytkownikMenedzer.wylogowanieUzytkownika();
     delete adresatMeneger;
     adresatMeneger = NULL;
+}
+
+char KsiazkaAdresowa::wybierzOpcjeZMenuUzytkownika()
+{
+    return adresatMeneger->wybierzOpcjeZMenuEdycja();
 }
 
 void KsiazkaAdresowa::dodajAdresata()
@@ -70,3 +93,4 @@ void KsiazkaAdresowa::edytujAdresata()
 {
     adresatMeneger->edytujAdresata();
 }
+
