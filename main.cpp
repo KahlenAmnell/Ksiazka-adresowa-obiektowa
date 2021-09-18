@@ -49,13 +49,13 @@ int main ()
                 ksiazkaAdresowa.dodajAdresata();
                 break;
             case '2':
-               // ksiazkaAdresowa.wyszukajAdresatowPoImieniu(adresaci);
+                //ksiazkaAdresowa.wyszukajAdresatowPoImieniu(adresaci);
                 break;
             case '3':
                // wyszukajAdresatowPoNazwisku(adresaci);
                 break;
             case '4':
-              //  wyswietlWszystkichAdresatow(adresaci);
+                ksiazkaAdresowa.wyswietlWszystkichAdresatow();
                 break;
             case '5':
                 ksiazkaAdresowa.usunAdresata();
