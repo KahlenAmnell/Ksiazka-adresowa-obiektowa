@@ -34,13 +34,6 @@ int main ()
         }
         else
         {
-/*
-            if (adresaci.empty() == true)
-                // Pobieramy idOstatniegoAdresata, po to aby zoptymalizowac program.
-                // Dzieki temu, kiedy uztykwonik bedzie dodawal nowego adresata
-                // to nie bedziemy musieli jeszcze raz ustalac idOstatniegoAdresata*/
-                //ksiazkaAdresowa.wczytajAdresatowZalogowanegoUzytkownikaZPliku();
-
             wybor = ksiazkaAdresowa.wybierzOpcjeZMenuUzytkownika();
 
             switch (wybor)
@@ -68,17 +61,10 @@ int main ()
                 break;
             case '8':
                 czyZalogowany = false;
-               //adresaci.clear();
                 break;
             }
 
         }
     }
-//KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt", "Adresaci.txt");
-//ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
-//ksiazkaAdresowa.logowanieUzytkownika();
-//ksiazkaAdresowa.edytujAdresata();
-//ksiazkaAdresowa.wyswietlWszystkichAdresatow();
-//ksiazkaAdresowa.wylogowanieUzytkownika();
 return 0;
 }

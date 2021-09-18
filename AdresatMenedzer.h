@@ -15,7 +15,6 @@ class AdresatMenager
 public:
     AdresatMenager(int idZalogowanegoUzytkownika, string nazwaPlikuZAdresatami);
     char wybierzOpcjeZMenuUzytkownika();
-
     void dodajAdresata();
     void wyszukajAdresatowPoImieniu();
     void wyszukajAdresatowPoNazwisku();
