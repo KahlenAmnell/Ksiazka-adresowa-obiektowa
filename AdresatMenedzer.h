@@ -13,11 +13,12 @@
 class AdresatMenager
 {
 public:
-    AdresatMenager(string nazwaPlikuZAdresatami, int idZalogowanegoUzytkownika);
+    AdresatMenager(int idZalogowanegoUzytkownika, string nazwaPlikuZAdresatami);
     char wybierzOpcjeZMenuUzytkownika();
-    char wybierzOpcjeZMenuEdycja();
+
     void dodajAdresata();
     void wyszukajAdresatowPoImieniu();
+    void wyszukajAdresatowPoNazwisku();
     void wyswietlWszystkichAdresatow();
     void usunAdresata();
     void edytujAdresata();
@@ -30,6 +31,7 @@ private:
     Adresat podajDaneNowegoAdresata();
     void wyswietlDaneAdresata(Adresat adresat);
     int podajIdWybranegoAdresata();
+    char wybierzOpcjeZMenuEdycja();
     void wyswietlIloscWyszukanychAdresatow(int iloscAdresatow);
 
     Adresat ustawNoweImie(Adresat &adresat);

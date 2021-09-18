@@ -1,7 +1,7 @@
 #include "AdresatMenedzer.h"
 
-AdresatMenager::AdresatMenager(string nazwaPlikuZAdresatami, int idZalogowanegoUzytkownika)
-    :plikZAdresatami(nazwaPlikuZAdresatami), ID_ZALOGOWANEGO_UZYTKOWNIKA(idZalogowanegoUzytkownika)
+AdresatMenager::AdresatMenager(int idZalogowanegoUzytkownika, string nazwaPlikuZAdresatami)
+    :ID_ZALOGOWANEGO_UZYTKOWNIKA(idZalogowanegoUzytkownika), plikZAdresatami(nazwaPlikuZAdresatami)
 {
     adresaci = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA);
 }
@@ -104,6 +104,38 @@ void AdresatMenager::wyszukajAdresatowPoImieniu()
     system("pause");
 }
 
+void AdresatMenager::wyszukajAdresatowPoNazwisku()
+{
+    string nazwiskoPoszukiwanegoAdresata;
+    int iloscAdresatow = 0;
+
+    system("cls");
+    if (!adresaci.empty())
+    {
+        cout << ">>> WYSZUKIWANIE ADRESATOW O NAZWISKU <<<" << endl << endl;
+
+        cout << "Wyszukaj adresatow o nazwisku: ";
+        nazwiskoPoszukiwanegoAdresata = MetodyPomocnicze::wczytajLinie();
+        nazwiskoPoszukiwanegoAdresata = MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(nazwiskoPoszukiwanegoAdresata);
+
+        for (vector <Adresat>::iterator itr = adresaci.begin(); itr != adresaci.end(); itr++)
+        {
+            if (itr ->pobierzNazwisko() == nazwiskoPoszukiwanegoAdresata)
+            {
+                wyswietlDaneAdresata(*itr);
+                iloscAdresatow++;
+            }
+        }
+         wyswietlIloscWyszukanychAdresatow(iloscAdresatow);
+    }
+    else
+    {
+        cout << endl << "Ksiazka adresowa jest pusta." << endl << endl;
+    }
+    cout << endl;
+    system("pause");
+}
+
 void AdresatMenager::wyswietlIloscWyszukanychAdresatow(int iloscAdresatow)
 {
     if (iloscAdresatow == 0)
@@ -195,8 +227,6 @@ void AdresatMenager::edytujAdresata()
     system("cls");
     Adresat adresat;
     int idEdytowanegoAdresata = 0;
-    int numerLiniiEdytowanegoAdresata = 0;
-    string liniaZDanymiAdresata = "";
 
     cout << ">>> EDYCJA WYBRANEGO ADRESATA <<<" << endl << endl;
     idEdytowanegoAdresata = podajIdWybranegoAdresata();
