@@ -17,6 +17,7 @@ public:
     char wybierzOpcjeZMenuUzytkownika();
     char wybierzOpcjeZMenuEdycja();
     void dodajAdresata();
+    void wyszukajAdresatowPoImieniu();
     void wyswietlWszystkichAdresatow();
     void usunAdresata();
     void edytujAdresata();
@@ -29,6 +30,7 @@ private:
     Adresat podajDaneNowegoAdresata();
     void wyswietlDaneAdresata(Adresat adresat);
     int podajIdWybranegoAdresata();
+    void wyswietlIloscWyszukanychAdresatow(int iloscAdresatow);
 
     Adresat ustawNoweImie(Adresat &adresat);
     Adresat ustawNoweNazwisko(Adresat &adresat);

@@ -66,6 +66,11 @@ char KsiazkaAdresowa::wybierzOpcjeZMenuUzytkownika()
     return adresatMeneger->wybierzOpcjeZMenuUzytkownika();
 }
 
+void KsiazkaAdresowa::wyszukajAdresatowPoImieniu()
+{
+    adresatMeneger->wyszukajAdresatowPoImieniu();
+}
+
 void KsiazkaAdresowa::dodajAdresata()
 {
     if(uzytkownikMenedzer.czyUzytkownikJestZalogowany())
