@@ -63,7 +63,7 @@ void KsiazkaAdresowa::wylogowanieUzytkownika()
 
 char KsiazkaAdresowa::wybierzOpcjeZMenuUzytkownika()
 {
-    return adresatMeneger->wybierzOpcjeZMenuEdycja();
+    return adresatMeneger->wybierzOpcjeZMenuUzytkownika();
 }
 
 void KsiazkaAdresowa::dodajAdresata()

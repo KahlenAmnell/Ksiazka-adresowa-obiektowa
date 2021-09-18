@@ -24,7 +24,6 @@ public:
     void zmianaHaslaZalogowanegoUzytkownika();
     void wylogowanieUzytkownika();
 
-   // void wczytajAdresatowZalogowanegoUzytkownikaZPliku();
     char wybierzOpcjeZMenuUzytkownika();
     void dodajAdresata();
     void wyswietlWszystkichAdresatow();

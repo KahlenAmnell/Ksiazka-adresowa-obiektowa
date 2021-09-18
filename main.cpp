@@ -38,8 +38,8 @@ int main ()
             if (adresaci.empty() == true)
                 // Pobieramy idOstatniegoAdresata, po to aby zoptymalizowac program.
                 // Dzieki temu, kiedy uztykwonik bedzie dodawal nowego adresata
-                // to nie bedziemy musieli jeszcze raz ustalac idOstatniegoAdresata
-                ksiazkaAdresowa.wczytajAdresatowZalogowanegoUzytkownikaZPliku();
+                // to nie bedziemy musieli jeszcze raz ustalac idOstatniegoAdresata*/
+                //ksiazkaAdresowa.wczytajAdresatowZalogowanegoUzytkownikaZPliku();
 
             wybor = ksiazkaAdresowa.wybierzOpcjeZMenuUzytkownika();
 
@@ -68,10 +68,10 @@ int main ()
                 break;
             case '8':
                 czyZalogowany = false;
-                adresaci.clear();
+               //adresaci.clear();
                 break;
             }
-            */
+
         }
     }
 //KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt", "Adresaci.txt");
