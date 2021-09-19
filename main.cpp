@@ -63,7 +63,6 @@ int main ()
                 czyZalogowany = false;
                 break;
             }
-
         }
     }
 return 0;
